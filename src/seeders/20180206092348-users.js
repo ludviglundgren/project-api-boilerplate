@@ -17,7 +17,7 @@ module.exports = {
   }
 }
 
-const BCrypt = require('bcrypt')
+const BCrypt = require('bcryptjs')
 const Moment = require('moment')
 
 function user(firstName, lastName, email, role, date, status='active') {
