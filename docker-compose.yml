@@ -1,15 +1,16 @@
 version: '3.5'
 services:
   express_api:
-    container_name: express_api
+    container_name: solenya-express_api
     build: .
     image: express_api
     user: node
     working_dir: /home/node/app
     labels:
+      trafik.enable: "true"
       traefik.backend: "express_api"
-      traefik.docker.network: "host"
-      traefik.frontend.rule: "Host:api.chas.school"
+      traefik.docker.network: "exoframe"
+      traefik.frontend.rule: "Host:solenya-api.chas.school"
     volumes:
       - ./:/home/node/app
     environment:
@@ -19,7 +20,7 @@ services:
     env_file:
       - .env
   database:
-    container_name: postgres_db
+    container_name: solenya-postgres_db
     image: onjin/alpine-postgres:9.6
     labels:
       traefik.backend: "express_api"

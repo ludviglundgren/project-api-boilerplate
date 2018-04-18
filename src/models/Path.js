@@ -1,22 +1,20 @@
-'use strict'
-
 export default (sequelize, DataTypes) => {
   const Path = sequelize.define('Path', {
     pathId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     userId: DataTypes.INTEGER,
-    value: DataTypes.JSON
-  })
+    value: DataTypes.JSON,
+  });
 
-  Path.associate = (models) => {
+  Path.associate = models => {
     Path.belongsTo(models.User, {
       as: 'User',
-      foreignKey: 'userId'
-    })
-  }
+      foreignKey: 'userId',
+    });
+  };
 
-  return Path
-}
+  return Path;
+};
