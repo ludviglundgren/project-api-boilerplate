@@ -3,7 +3,7 @@ import C from '../controllers'
 
 export default (app) => {
   app.get('/', (req, res) => res.status(200).send({
-    message: 'Testing deploy pipeline!'
+    message: 'Testing deploy pipeline - DEVELOP!'
   }))
 
   /* Sessions */

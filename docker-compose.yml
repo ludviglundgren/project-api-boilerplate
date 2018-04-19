@@ -7,6 +7,7 @@ services:
     user: node
     working_dir: /home/node/app
     labels:
+      traefik.enable: "true"
       traefik.frontend.rule: "Host:TRAEFIK_ENV.chas.school"
     volumes:
       - ./:/home/node/app
