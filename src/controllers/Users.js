@@ -1,25 +1,26 @@
-import * as Users from '../lib/Users';
+import * as Users from '../lib/Users'
 
 export default {
   list(req, res) {
-    Promise.all([
-      Users.list({
-        res,
-        query: req.query,
-        returnData: true,
-        jsonData: true,
-      }),
-      Users.pages({ query: req.query }),
-    ])
+    Promise
+      .all([
+        Users.list({
+          res,
+          query: req.query,
+          returnData: true,
+          jsonData: true
+        }),
+        Users.pages({ query: req.query })
+      ])
       .then(promises => {
         res.status(200).send({
           rows: promises[0],
-          pages: promises[1],
-        });
+          pages: promises[1]
+        })
       })
       .catch(error => {
-        res.status(400).send(error);
-      });
+        res.status(400).send(error)
+      })
   },
 
   create(req, res) {
@@ -29,31 +30,31 @@ export default {
 
     Users.create({
       res,
-      body: req.body,
-    });
+      body: req.body
+    })
   },
 
   find(req, res) {
     Users.find({
       res,
       where: {
-        userId: req.params.userId,
-      },
-    });
+        userId: req.params.userId
+      }
+    })
   },
 
   update(req, res) {
     Users.update({
       res,
       body: req.body,
-      userId: req.params.userId,
-    });
+      userId: req.params.userId
+    })
   },
 
   destroy(req, res) {
     Users.destroy({
       res,
-      userId: req.params.userId,
-    });
-  },
-};
+      userId: req.params.userId
+    })
+  }
+}

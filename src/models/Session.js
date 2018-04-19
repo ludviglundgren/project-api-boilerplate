@@ -1,23 +1,25 @@
+'use strict'
+
 export default (sequelize, DataTypes) => {
   const Session = sequelize.define('Session', {
     sessionId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     userId: DataTypes.INTEGER,
     userAgent: DataTypes.STRING,
     ipAddress: DataTypes.STRING,
     token: DataTypes.TEXT,
-    signedOut: DataTypes.BOOLEAN,
-  });
+    signedOut: DataTypes.BOOLEAN
+  })
 
-  Session.associate = models => {
+  Session.associate = (models) => {
     Session.belongsTo(models.User, {
       as: 'User',
-      foreignKey: 'userId',
-    });
-  };
+      foreignKey: 'userId'
+    })
+  }
 
-  return Session;
-};
+  return Session
+}

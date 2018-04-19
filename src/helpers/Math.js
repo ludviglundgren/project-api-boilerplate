@@ -1,8 +1,6 @@
-function rand(min = 0, max = 60) {
-  const mi = Math.ceil(min);
-  const ma = Math.floor(max);
+export function rand(min=0, max=60) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
 
-  return Math.floor(Math.random() * (ma - mi)) + mi;
+  return Math.floor(Math.random() * (max - min)) + min
 }
-
-export default rand;
