@@ -1,6 +1,0 @@
-{
-  "name":"solenya-api",
-  "domain": "solenya-dev-api.chas.school",
-  "project": "solenya-project",
-  "template": "docker-compose"
-}

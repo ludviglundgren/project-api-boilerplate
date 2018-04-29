@@ -49,6 +49,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
     "lint": "./node_modules/.bin/eslint .",
-    "fix": "./node_modules/.bin/eslint --fix ."
+    "fix": "./node_modules/.bin/eslint --fix .",
+    "build": "babel src -d dist"
   }
 }
