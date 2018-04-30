@@ -1,10 +1,12 @@
 import { authBearer } from '../lib/Sessions'
 import C from '../controllers'
 
-export default (app) => {
-  app.get('/', (req, res) => res.status(200).send({
-    message: 'Testing deploy pipeline - DEVELOP!'
-  }))
+export default app => {
+  app.get('/', (req, res) =>
+    res.status(200).send({
+      message: 'Testing deploy pipelines - PRODUCTION!',
+    }),
+  );
 
   /* Sessions */
   app.post('/sign-in', C.Sessions.authenticate)
